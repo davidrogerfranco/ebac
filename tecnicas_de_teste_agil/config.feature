@@ -1,31 +1,16 @@
 Feature: Configurar Produto
 
-  Scenario: Selecionar cor, tamanho e quantidade obrigatórios
-    Given que estou na página de configuração do produto
-    When seleciono a "Orange"
-    And seleciono o "S"
-    And seleciono a "1"
-    Then a seleção deve ser obrigatória
+  Cenário: Selecionar cor, tamanho e quantidade obrigatórios
+    Dado que o cliente está na página de configuração do produto
+    Quando o cliente seleciona uma cor, tamanho E quantidade
+    Então o sistema deve permitir E exibir a seleção na tela
 
-  Scenario: Limitar a quantidade de produtos por venda
-    Given que estou na página de configuração do produto
-    When tento adicionar mais de 10 produtos
-    Then o sistema deve exibir uma mensagem de erro "Limite de 10 produtos por venda"
+  Cenário: Limitar quantidade de produtos por venda
+    Dado que o cliente está na página de configuração do produto
+    Quando o cliente tenta adicionar mais de 10 produtos
+    Então o sistema deve exibir uma mensagem de erro E limitar a quantidade para 10 produtos
 
-  Scenario: Limpar seleções
-    Given que estou na página de configuração do produto
-    When clico no botão "limpar"
-    Then as seleções devem ser resetadas ao estado original
-
-  Scenario Outline: Selecionar cor, tamanho e quantidade obrigatórios
-    Given que estou na página de configuração do produto
-    When seleciono a "<cor>"
-    And seleciono o "<tamanho>"
-    And seleciono a "<quantidade>"
-    Then a seleção deve ser obrigatória
-
-    Examples:
-      | cor     | tamanho | quantidade |
-      | Orange  | S       | 1          |
-      | Blue    | M       | 2          |
-      | Red     | L       | 3          |
+  Cenário: Limpar seleções
+    Dado que o cliente está na página de configuração do produto
+    Quando o cliente clica no botão "limpar"
+    Então as seleções devem ser resetadas ao estado original
