@@ -1,15 +1,21 @@
 Feature: Login na Plataforma
 
-  Scenario: Login com sucesso
-    Given que estou na página de login
-    When preencho o campo "Username or email address" com "usuario_valido"
-    And preencho o campo "Password" com "senha_valida"
-    And clico no botão "LOGIN"
-    Then devo ser direcionado para a tela de checkout
+  Cenário: Login com dados válidos
+    Dado que o cliente está na página de login
+    Quando o cliente insere um usuário válido
+    E insere uma senha válida
+    E clica no botão "LOGIN"
+    Então deve ser direcionado para a tela de checkout
 
-  Scenario: Login com dados inválidos
-    Given que estou na página de login
-    When preencho o campo "Username or email address" com "usuario_invalido"
-    And preencho o campo "Password" com "senha_invalida"
-    And clico no botão "LOGIN"
-    Then devo ver a mensagem de alerta "Usuário ou senha inválidos"
+  Cenário: Login com dados inválidos
+    Dado que o cliente está na página de login
+    Quando o cliente insere usuário ou senha inválidos
+    E clica no botão "LOGIN"
+    Então deve ver a mensagem de alerta "Usuário ou senha inválidos"
+
+| TABELA 1: DADOS INVÁLIDOS [dados fornecidos pelo usuário X base de dados do sistema]
+|     USUÁRIO	  |     SENHA	   | RESULTADO
+| usuario_correto |	senha_errada   |  inválido
+| usuario_errado  |	senha_correta  |  inválido
+| usuario_correto |	senha_correta  |  válido
+| usuario_errado  |	senha errada   |  inválido
