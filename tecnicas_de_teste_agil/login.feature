@@ -13,9 +13,10 @@ Feature: Login na Plataforma
     E clica no botão "LOGIN"
     Então deve ver a mensagem de alerta "Usuário ou senha inválidos"
 
-| TABELA 1: DADOS INVÁLIDOS [dados fornecidos pelo usuário X base de dados do sistema]
-|     USUÁRIO	  |     SENHA	   | RESULTADO
-| usuario_correto |	senha_errada   |  inválido
-| usuario_errado  |	senha_correta  |  inválido
-| usuario_correto |	senha_correta  |  válido
-| usuario_errado  |	senha errada   |  inválido
+Exemplos:
+| TABELA 1: DADOS INVÁLIDOS [dados fornecidos pelo usuário X base de dados do sistema] |
+                |     USUÁRIO	    |     SENHA	     | RESULTADO  |
+                | usuario_correto |	senha_errada   |  inválido  |
+                | usuario_errado  |	senha_correta  |  inválido  |
+                | usuario_correto |	senha_correta  |  válido    |
+                | usuario_errado  |	senha errada   |  inválido  |
